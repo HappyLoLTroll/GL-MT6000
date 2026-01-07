@@ -72,6 +72,15 @@ jobs:
           # run again because sometimes it misses some dependencies
           ./scripts/feeds install -a
 
+      - name: Patch Rust feed (disable download-ci-llvm)
+        run: |
+          if [ -f feeds/packages/lang/rust/Makefile ]; then
+            sed -i 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
+            echo "Patched feeds/packages/lang/rust/Makefile"
+          else
+            echo "Rust Makefile not found, skipping patch"
+          fi
+
       - name: Setup configuration and custom files
         run: |
           mv -v builder_repo/files ./
