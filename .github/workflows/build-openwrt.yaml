@@ -127,8 +127,7 @@ jobs:
           - **WiFi UCODE scripts**
           - **Wireguard VPN**
           - **Policy Based Routing**
-          - **Ad Block Fast**
-          - **REMOVED:** odhcp, upnp, iptables, avahi, samba, usb storage..." --title "OpenWrt Custom Release for Flint 2 (${{ needs.check_commits.outputs.release_prefix }}-${RELEASE_DATE})" firmware/*
+          - **REMOVED:** odhcp, upnp, avahi, samba, usb storage..." --title "OpenWrt Custom Release for Flint 2 (${{ needs.check_commits.outputs.release_prefix }}-${RELEASE_DATE})" firmware/*
 
       - name: Clean up old releases
         run: |
